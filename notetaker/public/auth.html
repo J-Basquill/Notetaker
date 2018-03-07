@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firebase Auth Test</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,600,700">
+    <link rel="stylesheet" href="../src/style_auth.css">
+  </head>
+
+  <body>
+
+    <div id="login_div" class="main-div">
+      <h3>Login Example</h3>
+      <input type="email" name="Email" id="email_field" placeholder="Email">
+      <input type="password" name="password" id="password_field" placeholder="Password">
+      <button type="button" onclick="login()">Login</button>
+
+    </div>
+
+    <div id="signUp_div" class="sign-up-div">
+      <h3>Sign Up Example</h3>
+      <input type="email" name="Email" id="email_create" placeholder="Email">
+      <input type="password" name="password" id="password_create" placeholder="Password">
+      <button type="button" onclick="createAccount()">Create Account</button>
+
+    </div>
+
+    <div id="user_div" class="logged-in-div">
+      <h3>Welcome Welcome</h3>
+      <p>This is an Example. You are logged in</p>
+      <button type="button" onclick="logout()">Logout</button>
+
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+     <script>
+          // Initialize Firebase
+          var config = {
+        	apiKey: "AIzaSyB7342mU_GSpdtAlSntiHyGBW7eM5SzGGM",
+        	authDomain: "tutorial-10631.firebaseapp.com",
+        	databaseURL: "https://tutorial-10631.firebaseio.com",
+        	projectId: "tutorial-10631",
+        	storageBucket: "tutorial-10631.appspot.com",
+        	messagingSenderId: "1097769758488"
+          };
+          firebase.initializeApp(config);
+    </script>
+    <script src="../src/auth.js"></script>
+
+  </body>
