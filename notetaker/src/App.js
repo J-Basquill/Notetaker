@@ -1,68 +1,146 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import Routes from "./Routes";
-import RouteNavItem from "./components/RouteNavItem";
 import * as firebase from "firebase";
+import { Spinner } from '@blueprintjs/core';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Login from './components/Login';
+import Logout from './components/Logout';
+import { app } from './firebase_Config';
+import SignUp from "./components/SignUp";
+import Home from "./components/Home";
+
+import Library from "./components/Library";
 import './App.css';
+import Uploader from "./components/Uploader";
+import Downloader from "./components/Downloader";
+
+function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
+    return (
+        <Route
+            {...rest}
+            render={(props) => authenticated === true
+                ? <Component {...props} {...rest} />
+                : <Redirect to={{pathname: '/login', state: {from: props.location}}} /> } />
+    )
+}
+
+
 
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
+        this.setCurrentUser = this.setCurrentUser.bind(this);
+
 
         this.state = {
-            isAuthenticated: false
-        };
+            authenticated: false,
+            currentUser: null,
+            loading: true,
 
-        let userHasAuthenticated = authenticated => {
-            this.setState({isAuthenticated: authenticated});
+        };
+    }
+
+
+
+    setCurrentUser(user) {
+        if (user) {
+            this.setState({
+                currentUser: user,
+                authenticated: true
+            })
+        } else {
+            this.setState({
+                currentUser: null,
+                authenticated: false
+            })
         }
     }
 
-    logout() {
-        this.userHasAuthenticated(false);
-        console.log("logging out..");
-            firebase.auth().signOut()
-                .then(function(){
-                    //sign out sucessful
+    componentWillMount() {
+        this.removeAuthListener = app.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    authenticated: true,
+                    currentUser: user,
+                    loading: false,
                 })
-                .catch(function(error) {
-                    //some error
-                });
 
-    };
+
+            } else {
+                this.setState({
+                    authenticated: false,
+                    currentUser: null,
+                    loading: false,
+                })
+
+
+            }
+        })
+    }
+
+    componentWillUnmount() {
+        this.removeAuthListener();
+
+    }
 
     render() {
-
-        const childProps = {
-            isAuthenticated: this.state.isAuthenticated,
-            userHasAuthenticated: this.userHasAuthenticated
-        };
+        if (this.state.loading === true) {
+            return (
+                <div style={{ textAlign: "center", position: "absolute", top: "25%", left: "50%" }}>
+                    <h3>Loading</h3>
+                    <Spinner />
+                </div>
+            )
+        }
 
         return (
-            <div className="App container">
-                <Navbar fluid collapseOnSelect>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <Link to="/">NoteTaker</Link>
-                        </Navbar.Brand>
-                        <Navbar.Toggle/>
-                    </Navbar.Header>
+            <div style={{maxWidth: "1160px", margin: "0 auto"}}>
+                <BrowserRouter>
+                    <div>
+                        <Header  authenticated={this.state.authenticated} />
+                        <div className="main-content" style={{padding: "1em"}}>
+                            <div className="workspace">
+                                <Route exact path="/login" render={(props) => {
+                                    return <Login setCurrentUser={this.setCurrentUser} {...props} />
+                                }} />
+                                <Route exact path="/SignUp" render={(props) => {
+                                    return <SignUp setCurrentUser={this.setCurrentUser} {...props} />
+                                }} />
 
-                    <Navbar.Collapse>
-                        <Nav pullRight>
-                            {this.state.isAuthenticated
-                                ? <NavItem onClick={this.logout()}>Logout</NavItem>
-                                :[
-                                <RouteNavItem key={1} href="./Register">Signup</RouteNavItem>,
-                                <RouteNavItem key={2} href="./Login">Login</RouteNavItem>
-                            ]}
-                        </Nav>
-                    </Navbar.Collapse>
+                                <Route exact path="/logout" component={Logout} />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/home"
+                                    authenticated={this.state.authenticated}
+                                    component={Home}
+                                />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/upload"
+                                    authenticated={this.state.authenticated}
+                                    component={Uploader}
+                                />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/library"
+                                    authenticated={this.state.authenticated}
+                                    component={Library}
+                                />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/download"
+                                    authenticated={this.state.authenticated}
+                                    component={Downloader}
+                                />
 
-                </Navbar>
-                <Routes childProps={childProps}/>
+                            </div>
+                        </div>
+                    </div>
+                </BrowserRouter>
+                <Footer />
             </div>
         );
     }
