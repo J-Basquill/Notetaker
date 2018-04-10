@@ -47,8 +47,8 @@ class Header extends Component {
                 {this.props.authenticated
                     ? (
                         <div className="pt-navbar-group pt-align-right">
-                            <button className="pt-button pt-minimal pt-icon-home">Home</button>
-                            <Link className="pt-button pt-minimal pt-icon-document" to="/upload">My Files</Link>
+                            <Link className="pt-button pt-minimal pt-icon-home" to="/home">Home</Link>
+                            <Link className="pt-button pt-minimal pt-icon-document" to="/library">My Files</Link>
 
 
                             <span className="pt-navbar-divider"/>

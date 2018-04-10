@@ -10,9 +10,11 @@ import Logout from './components/Logout';
 import { app } from './firebase_Config';
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-import Files from "./components/Files";
+
+import Library from "./components/Library";
 import './App.css';
 import Uploader from "./components/Uploader";
+import Downloader from "./components/Downloader";
 
 function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
     return (
@@ -24,27 +26,7 @@ function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
     )
 }
 
-function ShowRoute({component: Component, items, param, ...rest}) {
-    return (
-        <Route
-            {...rest}
-            render={({match, ...props}) => {
-                if (rest.requireAuth === true && !rest.authenticated) {
-                    return (
-                        <Redirect to={{pathname: '/login', state: {from: props.location}}} />
-                    )
-                }
 
-                const item = items[match.params[param]]
-                if (item) {
-                    return <Component item={item} {...props} match={match} {...rest}/>
-                } else {
-                    return <h1>Not Found</h1>
-                }
-            }}
-        />
-    )
-}
 
 
 class App extends Component {
@@ -131,7 +113,7 @@ class App extends Component {
                                 <Route exact path="/logout" component={Logout} />
                                 <AuthenticatedRoute
                                     exact
-                                    path="/Home"
+                                    path="/home"
                                     authenticated={this.state.authenticated}
                                     component={Home}
                                 />
@@ -143,19 +125,17 @@ class App extends Component {
                                 />
                                 <AuthenticatedRoute
                                     exact
-                                    path="/Files"
+                                    path="/library"
                                     authenticated={this.state.authenticated}
-                                    component={Files}
+                                    component={Library}
                                 />
-                                <ShowRoute
+                                <AuthenticatedRoute
                                     exact
-                                    path="/files"
+                                    path="/download"
                                     authenticated={this.state.authenticated}
-                                    requireAuth={true}
-                                    component={Files}
-
-
+                                    component={Downloader}
                                 />
+
                             </div>
                         </div>
                     </div>
