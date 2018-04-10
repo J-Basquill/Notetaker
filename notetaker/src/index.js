@@ -5,7 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 import * as firebase from "firebase";
 import './index.css';
 import App from './App';
-import Uploader from "./components/Uploader";
 
 
 var config = {
@@ -24,6 +23,3 @@ ReactDOM.render (
                <App />
            </Router>, document.getElementById('root')
 );
-
-
-//uploader code
