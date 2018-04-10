@@ -5,9 +5,12 @@ export default class Uploader extends React.Component{
     upload(){
         let stRef = firebase.storage(),
             dbRef = firebase.database(),
-            username = document.getElementById("username").value,
-            file = document.getElementById("fileButton").files[0],
-            storageRef = stRef.ref(username+"/"+file.name),
+            auRef = firebase.auth().currentUser,
+            userId  = auRef.email;
+            userId = userId.substr(0, userId.indexOf("@"));
+            userId = userId.replace(".","");
+            let file = document.getElementById("fileButton").files[0],
+            storageRef = stRef.ref(userId+"/"+file.name),
             task = storageRef.put(file),
             path = storageRef.fullPath;
         task.on("state_changed",
@@ -18,7 +21,7 @@ export default class Uploader extends React.Component{
             function complete(){
                 console.log("Uploaded")
             });
-        dbRef.ref("files/"+username+"/").push().set({
+        dbRef.ref("files/"+userId+"/").push().set({
             file: path
         });
 
@@ -28,10 +31,6 @@ export default class Uploader extends React.Component{
         return(
             <div>
             <h1>UPLOADING</h1>
-        Username:<input type="text name=" id="username"/>
-            <form>
-                <input type="file" id="fileButton"/>
-            </form>
             <input type="file" id="fileButton"/>
             <button id="up" onClick={this.upload.bind(this)}>Submit?</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>

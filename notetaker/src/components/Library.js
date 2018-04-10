@@ -3,7 +3,9 @@ import * as firebase from "firebase";
 //git check comment
 export default class Library extends React.Component{
     showList(){
-        let userId = document.getElementById("username").value;
+        let userId = firebase.auth().currentUser.email;
+        userId = userId.substr(0, userId.indexOf("@"));
+        userId = userId.replace(".","");
         return firebase.database().ref('files/' + userId).once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 childSnapshot.forEach(function(childChildSnapshot){
@@ -21,17 +23,12 @@ export default class Library extends React.Component{
 
     }
 
-    // displayImages(){
-    //     let stRef = firebase.storage().ref(),
-    //         imgRef = stRef.child(path),
-    // }
 
     render(){
         return(
             <div>
-                <h1>DOWNLOADING</h1>
-                Username:<input type="text name=" id="username"/>
-                <button id="lis" onClick={this.showList.bind(this)}>List?</button><br/>
+                <h1>LIBRARY</h1>
+                <button id="lis" onClick={this.showList.bind(this)}>List</button><br/>
                 <p id="list"></p>
                 <img id="lastUp" src=""/>
             </div>

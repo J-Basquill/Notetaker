@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@blueprintjs/core": "^1.23.1",
+    "@blueprintjs/core": "^1.36.0",
     "file-loader": "^1.1.11",
     "firebase": "^4.10.0",
     "react": "^16.2.0",
