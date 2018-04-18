@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Toaster, Intent } from '@blueprintjs/core'
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { app } from '../firebase_Config'
 
 const loginStyles = {
