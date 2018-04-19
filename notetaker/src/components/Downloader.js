@@ -17,7 +17,9 @@ export default class Downloader extends React.Component{
     }
 
     showList(){
-        let userId = document.getElementById("username").value;
+        let userId = firebase.auth().currentUser.email;
+        userId = userId.substr(0, userId.indexOf("@"));
+        userId = userId.replace(".","");
         return firebase.database().ref('files/' + userId).once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 childSnapshot.forEach(function(childChildSnapshot){
@@ -32,8 +34,7 @@ export default class Downloader extends React.Component{
         return(
             <div>
             <h1>DOWNLOADING</h1>
-        Username:<input type="text name=" id="username"/>
-            <button id="lis" onClick={this.showList.bind(this)}>List?</button><br/>
+            <button id="lis" onClick={this.showList.bind(this)}>List</button><br/>
         File Path:<input type="text name=" id="filePath"/>
             <button id="dl" onClick={this.download.bind(this)}>Download</button><br/>
         <p id="list"></p>
