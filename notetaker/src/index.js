@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
 import 'normalize.css/normalize.css';
 import '@blueprintjs/core/dist/blueprint.css';
-import './index.css';
 import App from './App';
+import{ BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render (
-
-    <App />, document.getElementById('root'));
-
-
-registerServiceWorker();
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+    , document.getElementById('root'));
