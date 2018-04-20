@@ -9,7 +9,7 @@ export default class Library extends React.Component{
         return firebase.database().ref('files/' + userId).once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 childSnapshot.forEach(function(childChildSnapshot){
-                    document.getElementById("list").innerText += childChildSnapshot.key+": "+childChildSnapshot.val()+"\n";
+                    document.getElementById("list").innerText += childChildSnapshot.key+": "+childChildSnapshot.val()+" ; ";
                     firebase.storage().ref().child(childChildSnapshot.val()).getDownloadURL().then(function(url) {
                         var test = url;
                         document.getElementById("lastUp").src = test;
@@ -18,6 +18,8 @@ export default class Library extends React.Component{
 
                     });
                 });
+                document.getElementById("list").innerText += "\n";
+
             });
         });
 

@@ -9,10 +9,14 @@ export default class Uploader extends React.Component{
             userId  = auRef.email;
             userId = userId.substr(0, userId.indexOf("@"));
             userId = userId.replace(".","");
-            let file = document.getElementById("fileButton").files[0],
+        let file = document.getElementById("fileButton").files[0],
             storageRef = stRef.ref(userId+"/"+file.name),
             task = storageRef.put(file),
-            path = storageRef.fullPath;
+            path = storageRef.fullPath,
+            topic = document.getElementById("topicText").value,
+            module = document.getElementById("moduleText").value,
+            instit = document.getElementById("whereText").value;
+
         task.on("state_changed",
             function prgress(snapshot){
                 var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
@@ -22,7 +26,10 @@ export default class Uploader extends React.Component{
                 console.log("Uploaded")
             });
         dbRef.ref("files/"+userId+"/").push().set({
-            file: path
+            file: path,
+            institution: instit,
+            module: module,
+            field: topic
         });
 
     }
@@ -31,7 +38,10 @@ export default class Uploader extends React.Component{
         return(
             <div>
             <h1>UPLOADING</h1>
-            <input type="file" id="fileButton"/>
+            Please choose a file: <input type="file" id="fileButton"/>
+            Field of study: <input type="text" id="topicText"/>
+            Module name: <input type="text" id="moduleText"/>
+            Institution: <input type="text" id="whereText"/>
             <button id="up" onClick={this.upload.bind(this)}>Submit?</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>
 
