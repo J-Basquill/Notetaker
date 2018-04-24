@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
 import { Navbar } from "react-bootstrap";
-import { Popover, PopoverInteractionKind, Position } from '@blueprintjs/core'
 
 class Header extends Component {
     constructor(props) {

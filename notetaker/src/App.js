@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from "react-bootstrap";
-import * as firebase from "firebase";
+
+import { Route, Redirect } from 'react-router-dom';
 import { Spinner } from '@blueprintjs/core';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,6 +15,7 @@ import './App.css';
 import Uploader from "./components/Uploader";
 import Downloader from "./components/Downloader";
 
+
 function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
     return (
         <Route
@@ -25,7 +25,6 @@ function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
                 : <Redirect to={{pathname: '/login', state: {from: props.location}}} /> } />
     )
 }
-
 
 
 
@@ -87,6 +86,14 @@ class App extends Component {
     }
 
     render() {
+
+        var background = {backgroundSize : 'cover'};
+        var textStyle = {
+            position: 'absolute',
+            top: '50%',
+            left: '50%'
+        };
+
         if (this.state.loading === true) {
             return (
                 <div style={{ textAlign: "center", position: "absolute", top: "25%", left: "50%" }}>
@@ -98,7 +105,8 @@ class App extends Component {
 
         return (
             <div style={{maxWidth: "1160px", margin: "0 auto"}}>
-                <BrowserRouter>
+
+
                     <div>
                         <Header  authenticated={this.state.authenticated} />
                         <div className="main-content" style={{padding: "1em"}}>
@@ -139,7 +147,8 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
-                </BrowserRouter>
+
+
                 <Footer />
             </div>
         );
