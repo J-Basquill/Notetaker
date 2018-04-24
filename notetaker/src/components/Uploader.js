@@ -38,10 +38,10 @@ export default class Uploader extends React.Component{
         return(
             <div>
             <h1>UPLOADING</h1>
-            Please choose a file: <input type="file" id="fileButton"/>
-            Field of study: <input type="text" id="topicText"/>
-            Module name: <input type="text" id="moduleText"/>
-            Institution: <input type="text" id="whereText"/>
+            Please choose a file: <input type="file" id="fileButton" required/>
+            Field of study: <input type="text" id="topicText" required/>
+            Module name: <input type="text" id="moduleText" required/>
+            Institution: <input type="text" id="whereText" required/>
             <button id="up" onClick={this.upload.bind(this)}>Submit?</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>
 
