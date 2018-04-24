@@ -48,6 +48,7 @@ class Header extends Component {
                         <div className="pt-navbar-group pt-align-right">
                             <Link className="pt-button pt-minimal pt-icon-home" to="/home">Home</Link>
                             <Link className="pt-button pt-minimal pt-icon-document" to="/library">My Files</Link>
+                            <Link className="pt-button pt-minimal pt-icon-document" to="/upload">Create Listing</Link>
 
 
                             <span className="pt-navbar-divider"/>
