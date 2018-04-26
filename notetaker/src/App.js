@@ -9,7 +9,7 @@ import Logout from './components/Logout';
 import { app } from './firebase_Config';
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-
+import FileTransfer from "./components/FileTransfer";
 import Library from "./components/Library";
 import './App.css';
 import Uploader from "./components/Uploader";
@@ -142,6 +142,12 @@ class App extends Component {
                                     path="/download"
                                     authenticated={this.state.authenticated}
                                     component={Downloader}
+                                />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/transfer"
+                                    authenticated={this.state.authenticated}
+                                    component={FileTransfer}
                                 />
 
                             </div>
