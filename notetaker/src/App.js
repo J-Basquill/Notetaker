@@ -9,6 +9,7 @@ import Logout from './components/Logout';
 import { app } from './firebase_Config';
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
+import checkout2 from "./components/checkout2";
 
 import Library from "./components/Library";
 import './App.css';
@@ -143,11 +144,16 @@ class App extends Component {
                                     authenticated={this.state.authenticated}
                                     component={Downloader}
                                 />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/checkout2"
+                                    authenticated={this.state.authenticated}
+                                    component={checkout2}
+                                />
 
                             </div>
                         </div>
                     </div>
-
 
                 <Footer />
             </div>
