@@ -101,13 +101,32 @@ class App extends Component {
             )
         }
 
+
         return (
 
                     <div className="big-banner">
-                        <Header  authenticated={this.state.authenticated} />
 
+                        <Header  authenticated={this.state.authenticated} />
+                        <div>
+                        {this.props.authenticated
+                            ? (
+                                <div className="no">
+
+                                </div>
+                            )
+                            :(
+                                <div className="g">
+
+                                </div>
+                            )
+                        }
+                        </div>
                         <div className="main-content" style={{padding: "1em"}}>
                             <div className="workspace">
+                                <Route exact path="/" render={(props) => {
+                                    return <div><h1 >logged out</h1> </div>
+                                }} />
+
                                 <Route exact path="/login" render={(props) => {
                                     return <Login setCurrentUser={this.setCurrentUser} {...props} />
                                 }} />

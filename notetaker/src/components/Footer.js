@@ -8,8 +8,8 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer>
-                <ul className="site-link">
+            <footer >
+                <ul className="text-white">
                     <li>
                         &copy; {this.state.year} NoteTaker
                     </li>
