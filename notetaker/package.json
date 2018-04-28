@@ -22,8 +22,7 @@
     "set-default-browser": "^1.0.1"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "server":"nodemon src/server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

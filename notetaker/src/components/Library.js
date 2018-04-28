@@ -17,7 +17,6 @@ export default class Library extends React.Component{
         let userId = firebase.auth().currentUser.email;
         userId = userId.substr(0, userId.indexOf("@"));
         userId = userId.replace(".","");
-
         return firebase.database().ref('files/' + userId).once('value', function(snapshot) {
             document.getElementById("list").innerHTML += "<tr><th>Field</th><th>File</th><th>Institution</th><th>Module</th></tr>";
             snapshot.forEach(function(childSnapshot) {
