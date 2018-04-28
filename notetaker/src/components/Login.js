@@ -6,8 +6,9 @@ import { app } from '../firebase_Config'
 const loginStyles = {
   width: "90%",
   maxWidth: "315px",
+  background: "crimson",
   margin: "20px auto",
-  border: "1px solid #ddd",
+  border: "3px solid #ddd",
   borderRadius: "5px",
   padding: "10px"
 }
@@ -69,8 +70,7 @@ class Login extends Component {
         <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
         <form onSubmit={(event) => { this.authWithEmailPassword(event) }} ref={(form) => { this.loginForm = form }}>
           <div style={{marginBottom: "10px"}} className="pt-callout pt-icon-info-sign">
-            <h5>Note</h5>
-            Sign in to your account.
+            <h5>Log in to your account.</h5>
           </div>
           <label className="pt-label">
             Email
