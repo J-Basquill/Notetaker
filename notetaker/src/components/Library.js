@@ -6,8 +6,8 @@ export default class Library extends React.Component{
 
     render(){
         return(
-            <div>
-                <h1>LIBRARY</h1>
+            <div className="welcome">
+                <h1 className="heading">LIBRARY</h1>
                 <table id="list"></table>
                 <a id="link" href =""download="results.jpeg"></a>
             </div>

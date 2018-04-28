@@ -67,18 +67,42 @@
 }
 
 .Home .lander p {
-    color: #999;
+    color: #b4cbd9;
+}
+
+.row{
+  background-color: crimson;
+  margin: 45px auto;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.heading{
+  color: white;
+  font-family: "Courier New";
+  text-align: center;
+}
+
+#welcome{
+  color: white;
+  font-family: "Courier New";
+  text-align: center;
 }
 
 #list{
   background-color: white;
   width: 55%;
   padding:10px ;
+margin: auto;
 }
 
 td{
   padding: 8px;
+  color: #1e4b61;
 }
 th{
   background-color: #dfe5e8;
+    color: #1e4b61;
+    text-align: center;
 }
