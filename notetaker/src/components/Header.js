@@ -3,17 +3,7 @@ import {Link} from 'react-router-dom';
 import { Navbar } from "react-bootstrap";
 
 class Header extends Component {
-    constructor(props) {
-        super(props)
-        this.closePopover = this.closePopover.bind(this)
-        this.state = {
-            popoverOpen: false
-        }
-    }
 
-    closePopover() {
-        this.setState({ popoverOpen: false })
-    }
 
     render() {
         return (

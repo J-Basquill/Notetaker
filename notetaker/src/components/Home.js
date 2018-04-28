@@ -12,13 +12,13 @@ export default class Home extends Component {
     render() {
         return (
             <div className="Home">
-                <div className="lander">
-                    <h1>My Account</h1>
-                    <p>This will be a protected route which only an authenticated user can access...</p>
-                </div>
+                {/*<div className="lander">*/}
+                    {/*<h1>My Account</h1>*/}
+                    {/*<p>This will be a protected route which only an authenticated user can access...</p>*/}
+                {/*</div>*/}
                 <div id="library">
                     <table id="list"></table>
-                    <p id="demo"></p>
+                    <div id="demo"></div>
                 </div>
             </div>
         );
@@ -53,7 +53,7 @@ export default class Home extends Component {
                             const element = <FileTransfer id={childChildSnapshot.key} />;
                             ReactDOM.render(
                                 element,
-                                document.getElementById('root')
+                                document.getElementById('upl')
                             );
                         }
                     });
