@@ -108,10 +108,13 @@ class App extends Component {
 
                         <Header  authenticated={this.state.authenticated} />
 
-                        <div className="main-content" style={{padding: "1em"}}>
+                        <div className="main-content" style={{padding: "1em", color: "white"}}>
                             <div className="workspace">
                                 <Route exact path="/" render={(props) => {
-                                    return <div><h1 >logged out</h1> </div>
+                                    return <div>
+                                        <h1 style={{padding: "1em", color: "white", textAlign: "center", fontFamily: "Courier New"}} >Welcome to NoteTakers</h1>
+                                        <p style={{padding: "1em", color: "white", textAlign: "center", fontFamily: "Courier New", fontSize: "large"}} >A never-been-done-before, totally original, file sharing website. </p>
+                                    </div>
                                 }} />
 
                                 <Route exact path="/login" render={(props) => {
