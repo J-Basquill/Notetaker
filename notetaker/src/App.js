@@ -10,6 +10,7 @@ import profilePage from './components/ProfilePage';
 import { app } from './firebase_Config';
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
+import checkout2 from "./components/checkout2";
 import FileTransfer from "./components/FileTransfer";
 import Library from "./components/Library";
 import './App.css';
@@ -141,6 +142,12 @@ class App extends Component {
                                 />
                                 <AuthenticatedRoute
                                     exact
+                                    path="/checkout2"
+                                    authenticated={this.state.authenticated}
+                                    component={checkout2}
+                                />
+                                <AuthenticatedRoute
+                                    exact
                                     path="/profile"
                                     authenticated={this.state.authenticated}
                                     component={profilePage}
@@ -160,6 +167,7 @@ class App extends Component {
 
                             </div>
                         </div>
+                    </div>
                 <Footer />
             </div>
         );

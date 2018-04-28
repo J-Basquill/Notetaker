@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "@blueprintjs/core": "^1.23.1",
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "fast-cli": "^2.1.0",
     "file-loader": "^1.1.11",
@@ -19,14 +20,12 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-transition-group": "^2.3.0",
-    "set-default-browser": "^1.0.1"
+    "set-default-browser": "^1.0.1",
+    "stripe": "^5.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
     "server": "nodemon src/server.js",
-=======
->>>>>>> 4082de9f2c48f11a1011c5f3b01cc57ff0a11cf3
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

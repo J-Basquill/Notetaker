@@ -44,6 +44,7 @@ yearExpiry(){
           year = new Date().getFullYear();
 
       for (var i = 0; i < 12; i++) {
+        var opt = sel.options[i];
           document.getElementsByClassName('card-expiry-year').innerHTML="<option value='"+(i + year)+"' "+(i === 0 ? "selected" : "")+">"+(i + year)+"</option>";
       }
 }
