@@ -8,7 +8,7 @@ export default class Library extends React.Component{
             <div>
                 <h1>LIBRARY</h1>
                 <table id="list"></table>
-                <img id="lastUp" src=""/>
+                <a id="link" href =""download="results.jpeg"></a>
             </div>
         );
     }
@@ -21,10 +21,25 @@ export default class Library extends React.Component{
             document.getElementById("list").innerHTML += "<tr><th>Field</th><th>File</th><th>Institution</th><th>Module</th></tr>";
             snapshot.forEach(function(childSnapshot) {
                 var new_row = document.getElementById("list").insertRow();
+                new_row.addEventListener("click", function(){
+                  let path = childSnapshot.child("file").val();
+                  console.log(path);
+                  firebase.storage().ref().child(path).getDownloadURL().then(function(url) {
+                      var link = url;
+                      window.location.href=link;
+                      document.getElementById("link").href = link;
+                      document.getElementById("link").innerText="Ready for Download"
+                  }).catch(function(error) {
+
+                  });
+
+                });
                 childSnapshot.forEach(function(childChildSnapshot){
                     new_row.insertCell().innerText = childChildSnapshot.val();
+                    // console.log( childChildSnapshot.val());
                     firebase.storage().ref().child(childChildSnapshot.val()).getDownloadURL().then(function(url) {
                         var test = url;
+
                         document.getElementById("lastUp").src = test;
                     }).catch(function(error) {
 
