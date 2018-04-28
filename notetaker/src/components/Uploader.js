@@ -38,6 +38,7 @@ export default class Uploader extends React.Component{
         return(
             <div>
             <h1>UPLOADING</h1>
+
             Please choose a file: <input type="file" id="fileButton" required/>
             Field of study: <input type="text" id="topicText" required/>
             Module name: <input type="text" id="moduleText" required/>

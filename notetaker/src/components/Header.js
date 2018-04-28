@@ -11,7 +11,7 @@ class Header extends Component {
 
                 <div className="pt-navbar-group pt-align-left">
                         <Navbar.Brand>
-                            <Link to="/">NoteTaker</Link>
+                            <Link to="/home">NoteTakers</Link>
                         </Navbar.Brand>
 
                     {this.props.authenticated
@@ -38,10 +38,11 @@ class Header extends Component {
                         <div className="pt-navbar-group pt-align-right">
                             <Link className="pt-button pt-minimal pt-icon-home" to="/home">Home</Link>
                             <Link className="pt-button pt-minimal pt-icon-document" to="/library">My Files</Link>
+                            <Link className="pt-button pt-minimal pt-icon-export" to="/upload">Create Listing</Link>
 
 
                             <span className="pt-navbar-divider"/>
-                            <button className="pt-button pt-minimal pt-icon-user"></button>
+                            <Link className="pt-button pt-minimal pt-icon-user" to="/profile"></Link>
                             <button className="pt-button pt-minimal pt-icon-shopping-cart" to="/"></button>
                             <Link className="pt-button pt-minimal pt-icon-log-out" to="/logout" aria-label="Log Out"></Link>
                         </div>

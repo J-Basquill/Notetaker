@@ -23,7 +23,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+<<<<<<< HEAD
     "server": "nodemon src/server.js",
+=======
+>>>>>>> 4082de9f2c48f11a1011c5f3b01cc57ff0a11cf3
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

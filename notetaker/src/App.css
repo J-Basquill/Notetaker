@@ -31,3 +31,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.image-thumbnail {
+  background: url('./img/background.jpg') no-repeat;
+  background-size: 30px; /** moved this property down */
+  float: left;
+  height: 50px;
+  width: 30px;
+}
+
+.big-banner {
+  background: url('./img/background.jpg')no-repeat;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
