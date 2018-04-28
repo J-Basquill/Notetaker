@@ -12,3 +12,16 @@
 .Home .lander p {
     color: #999;
 }
+
+#list{
+  background-color: white;
+  width: 55%;
+  padding:10px ;
+}
+
+td{
+  padding: 8px;
+}
+th{
+  background-color: #dfe5e8;
+}
