@@ -32,19 +32,9 @@ export default class Library extends React.Component{
                   }).catch(function(error) {
 
                   });
-
                 });
                 childSnapshot.forEach(function(childChildSnapshot){
                     new_row.insertCell().innerText = childChildSnapshot.val();
-                    // console.log( childChildSnapshot.val());
-                    firebase.storage().ref().child(childChildSnapshot.val()).getDownloadURL().then(function(url) {
-                        var test = url;
-
-                        document.getElementById("lastUp").src = test;
-                    }).catch(function(error) {
-
-                    });
-
                 });
             });
         });
