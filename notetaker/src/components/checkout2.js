@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import * as Stripe from "stripe" ;
+//import * as Stripe from "stripe" ;
 //import {Stripe Provider} from 'react-stripe-elements';
 export default class checkout2 extends Component {
   //Stripe.setPublishableKey('pk_test_AGSajVeTOdFLcg6JTYEPn6BJ');

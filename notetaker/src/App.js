@@ -165,7 +165,6 @@ class App extends Component {
                                     component={FileTransfer}
                                 />
 
-                            </div>
                         </div>
                     </div>
                 <Footer />
