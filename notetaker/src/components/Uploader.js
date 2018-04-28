@@ -32,7 +32,7 @@ export default class Uploader extends React.Component{
             <div>
             <h1>UPLOADING</h1>
             <input type="file" id="fileButton"/>
-            <button id="up" onClick={this.upload.bind(this)}>Submit?</button><br/>
+            <button id="up" onClick={this.upload.bind(this)}>Submit</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>
 
             </div>

@@ -7,7 +7,8 @@ const loginStyles = {
   width: "90%",
   maxWidth: "315px",
   margin: "20px auto",
-  border: "1px solid #ddd",
+  background: "crimson",
+  border: "3px solid #ddd",
   borderRadius: "5px",
   padding: "10px"
 }
@@ -35,7 +36,7 @@ class SignUp extends Component {
           // create user
           return app.auth().createUserWithEmailAndPassword(email, password)
         } else if (providers.indexOf("password") === -1) {
-          // they used facebook
+
           this.loginForm.reset()
           this.toaster.show({ intent: Intent.WARNING, message: "Try alternative login." })
         } else {
@@ -69,8 +70,7 @@ class SignUp extends Component {
         <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
         <form onSubmit={(event) => { this.authWithEmailPassword(event) }} ref={(form) => { this.loginForm = form }}>
           <div style={{marginBottom: "10px"}} className="pt-callout pt-icon-info-sign">
-            <h5>Note</h5>
-             create your account.
+            <h5>Create your account.</h5>
           </div>
           <label className="pt-label">
             Email

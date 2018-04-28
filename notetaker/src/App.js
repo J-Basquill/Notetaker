@@ -6,14 +6,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import profilePage from './components/ProfilePage';
 import { app } from './firebase_Config';
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-
 import Library from "./components/Library";
 import './App.css';
 import Uploader from "./components/Uploader";
 import Downloader from "./components/Downloader";
+import createProfile from "./components/CreateProfile";
 
 
 function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
@@ -87,12 +88,7 @@ class App extends Component {
 
     render() {
 
-        var background = {backgroundSize : 'cover'};
-        var textStyle = {
-            position: 'absolute',
-            top: '50%',
-            left: '50%'
-        };
+
 
         if (this.state.loading === true) {
             return (
@@ -104,11 +100,10 @@ class App extends Component {
         }
 
         return (
-            <div style={{maxWidth: "1160px", margin: "0 auto"}}>
 
-
-                    <div>
+                    <div className="big-banner">
                         <Header  authenticated={this.state.authenticated} />
+
                         <div className="main-content" style={{padding: "1em"}}>
                             <div className="workspace">
                                 <Route exact path="/login" render={(props) => {
@@ -143,12 +138,21 @@ class App extends Component {
                                     authenticated={this.state.authenticated}
                                     component={Downloader}
                                 />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/profile"
+                                    authenticated={this.state.authenticated}
+                                    component={profilePage}
+                                />
+                                <AuthenticatedRoute
+                                    exact
+                                    path="/createProfile"
+                                    authenticated={this.state.authenticated}
+                                    component={createProfile}
+                                />
 
                             </div>
                         </div>
-                    </div>
-
-
                 <Footer />
             </div>
         );
