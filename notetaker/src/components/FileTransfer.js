@@ -9,38 +9,36 @@ export default class FileTransfer extends React.Component{
         this.state = {
               id: props.id
             };
-        console.log(this.state.id);
+        //console.log(this.state.id);
     }
+    check= function(){
+        let key = this.props.id,
+            userId  = firebase.auth().currentUser.email;
+        userId = userId.substr(0, userId.indexOf("@"));
+        userId = userId.replace(".","");
 
-    render(){
         firebase.database().ref('files/').once('value', function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
+            snapshot.forEach(function(childSnapshot){
+              console.log(childSnapshot.child(key).val());
+              let value = childSnapshot.child(key).val();
+              firebase.database().ref('files/'+userId).push(key).set(value);
             });
         });
 
-        function check(key){
-            console.log(key);
-        }
+    }
+
+
+    render(){
 
         return(
             <div>
                 <h1>FILE TRANSFER</h1>
-                <p id="demo">Hello, {this.props.id}</p>
-                <button onClick="{this.check({this.props.id}).bind(this)}">Button</button>
+                <p id="demo" >Would you like to add the file to your library?</p>
+                <button onClick={this.check.bind(this)}>Button</button>
 
             </div>
         );
     }
 
-    componentDidMount(){
 
-    }
 }
-
-
-
-
-
-
-
-
