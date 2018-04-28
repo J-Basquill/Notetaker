@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import '@blueprintjs/core/dist/blueprint.css';
+import "./App.css";
 import App from './App';
 import{ BrowserRouter } from 'react-router-dom';
 
