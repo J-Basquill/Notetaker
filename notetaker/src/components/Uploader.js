@@ -1,6 +1,17 @@
 import React from "react";
 import * as firebase from "firebase";
 
+const UploadStyles = {
+    width: "100%",
+    maxWidth: "400px",
+    background: "crimson",
+    margin: "20px auto",
+    border: "3px solid #ddd",
+    borderRadius: "5px",
+    padding: "10px",
+
+}
+
 export default class Uploader extends React.Component{
     upload(){
         let stRef = firebase.storage(),
@@ -36,7 +47,7 @@ export default class Uploader extends React.Component{
     render(){
 
         return(
-            <div>
+            <div style={UploadStyles}>
             <h1>UPLOADING</h1>
 
             Please choose a file: <input type="file" id="fileButton" required/>
