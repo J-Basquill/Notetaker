@@ -36,11 +36,3 @@ export default class FileTransfer extends React.Component{
 
     }
 }
-
-
-
-
-
-
-
-
