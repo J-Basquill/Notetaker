@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Home.css";
+import "../App.css";
 import * as firebase from "firebase";
 import {app} from "../firebase_Config";
 import FileTransfer from "./FileTransfer";
@@ -16,7 +16,7 @@ export default class Home extends Component {
              <div className="lander">
                 <h1 className="welcome" id="welcome"  />
               </div>
-               
+
                 <div id="library">
                     <table id="list"></table>
                     <div id="demo"></div>
@@ -33,9 +33,9 @@ export default class Home extends Component {
         let userId = firebase.auth().currentUser.email;
         userId = userId.substr(0, userId.indexOf("@"));
         userId = userId.replace(".","");
-      
+
       document.getElementById('welcome').innerHTML = "Welcome " + userId + "! ";
-      
+
         let userArr = [];
         firebase.database().ref('files/' + userId).once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {

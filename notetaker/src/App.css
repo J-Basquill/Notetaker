@@ -16,7 +16,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 100%;
   padding: 20px;
   color: white;
 }
@@ -28,6 +28,11 @@
 .App-intro {
   font-size: large;
 }
+.workspace{
+  color: white;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -50,4 +55,30 @@
   position: absolute;
 }
 
+.Home .lander {
+    padding: 60px;
+    text-align: center;
+}
 
+.Home .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+.Home .lander p {
+    color: #999;
+}
+
+#list{
+  background-color: white;
+  width: 55%;
+  padding:10px ;
+}
+
+td{
+  padding: 8px;
+}
+th{
+  background-color: #dfe5e8;
+}
