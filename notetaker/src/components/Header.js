@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
 import { Navbar } from "react-bootstrap";
+import OwlLogo from '../img/OwlLogo.png';
 
 class Header extends Component {
 
@@ -11,6 +12,7 @@ class Header extends Component {
 
                 <div className="pt-navbar-group pt-align-left">
                         <Navbar.Brand>
+                            <span><img src={OwlLogo} width="40" height="35" alt=""/></span>
                             <Link to="/home">NoteTakers</Link>
                         </Navbar.Brand>
 
