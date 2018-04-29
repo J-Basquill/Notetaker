@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as firebase from "firebase";
+import user from "../img/user.png";
 import "../App.css";
 
 
@@ -51,15 +52,14 @@ export default class CreateProfile extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card card-body bg-info text-white mb-3">
-                        <div className="row2">
+
+                    <div className="card card-body bg-info ">
+                        <div className="row">
                             <div className="col-4 col-md-3 m-auto">
                                 <div className="container">
 
-                                            <div>
-                                                <img id="profo" src="../img/images.png" />
+                                            <div align= "center">
+                                                <img id="profo" src={user} />
                                                 <input type="file" id="profiler"/>
                                                 <progress value="0" max="100" id="uploader">0%</progress>
                                             </div>
@@ -93,8 +93,7 @@ export default class CreateProfile extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
 
         );
     }

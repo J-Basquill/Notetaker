@@ -12,7 +12,7 @@ export default class ProfilePage extends Component {
 
                             </div>
                             <div style={{ textAlign: "center", position: "absolute", top: "25%", left: "50%" }}>
-                                <img src="" alt=" " className="img-thumbnail"/>
+                                <img src="" alt="profile " className="img-thumbnail" />
                             </div>
                         </div>
                         <div className="text-center">
