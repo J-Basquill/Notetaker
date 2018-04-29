@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as firebase from "firebase";
+import "../App.css";
 
 
 export default class CreateProfile extends Component {
@@ -53,7 +54,7 @@ export default class CreateProfile extends Component {
             <div className="row">
                 <div className="col-md-12">
                     <div className="card card-body bg-info text-white mb-3">
-                        <div className="row">
+                        <div className="row2">
                             <div className="col-4 col-md-3 m-auto">
                                 <div className="container">
 

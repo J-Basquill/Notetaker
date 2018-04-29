@@ -9,7 +9,6 @@ const UploadStyles = {
     border: "3px solid #ddd",
     borderRadius: "5px",
     padding: "10px",
-
 }
 
 export default class Uploader extends React.Component{
@@ -48,13 +47,13 @@ export default class Uploader extends React.Component{
 
         return(
             <div style={UploadStyles}>
-            <h1>UPLOADING</h1>
+            <h1 className="heading">UPLOADING</h1>
 
-            Please choose a file: <input type="file" id="fileButton" required/>
-            Field of study: <input type="text" id="topicText" required/>
-            Module name: <input type="text" id="moduleText" required/>
-            Institution: <input type="text" id="whereText" required/>
-            <button id="up" onClick={this.upload.bind(this)}>Submit?</button><br/>
+            Please choose a file: <input type="file" id="fileButton" required/><br/>
+            Field of study: <input type="text" id="topicText" required/><br/>
+            Module name: <input type="text" id="moduleText" required/><br/>
+            Institution: <input type="text" id="whereText" required/><br/>
+            <button id="up" onClick={this.upload.bind(this)}>Submit</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>
 
             </div>
