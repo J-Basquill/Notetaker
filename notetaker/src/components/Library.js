@@ -22,7 +22,7 @@ export default class Library extends React.Component{
                 <h1 className="heading">LIBRARY</h1>
                 <table id="list"></table>
                 <a id="link" href =""download="results.jpeg"></a>
-            </div
+            </div>
           </div>
         );
     }
