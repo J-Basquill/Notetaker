@@ -35,7 +35,7 @@ export default class checkout2 extends Component {
 
     render() {
         return (
-          <div className="row">
+          <div className="form">
               <form onSubmit={this.handleSubmit}>
                 <h1 className="heading"> Checkout </h1>
                <label>
