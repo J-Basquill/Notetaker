@@ -39,13 +39,13 @@ export default class checkout2 extends Component {
               <form onSubmit={this.handleSubmit}>
                 <h1 className="heading"> Checkout </h1>
                <label>
-                 Name:
+                 Card:
                  <input type="text"/>
                </label>
                     <br/>
 
                 <label>
-                  Card: <input type="text" />
+                  CVC: <input type="text" />
                 </label>
 
 
