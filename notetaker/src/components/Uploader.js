@@ -49,17 +49,39 @@ export default class Uploader extends React.Component{
     render(){
 
         return(
-
+            <div>
+            <h1 className="heading">Upload your file.</h1>
             <div className="form" style={UploadStyles}>
-            <h1 className="heading">UPLOADING</h1>
 
-            Please choose a file:  <input type="file" id="fileButton" required/> <br/>
-            <input type="text" id="topicText" required/> Field of study <br/> <br/>
-            <input type="text" id="moduleText" required/> Module name <br/><br/>
-            <input type="text" id="whereText" required/> Institution<br/><br/>
-            <button align="center" id="up" onClick={this.upload.bind(this)}>Submit</button><br/>
-            <progress value="0" max="100" id="uploader">0%</progress>
 
+                <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
+                    <label htmlFor="fileButton">Please choose a file: </label>
+                    <input type="file" id="fileButton" required/>
+                </div><br/>
+
+                    <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
+                        <label htmlFor="topicText">Field of Study</label>
+                        <input type="text" className="form-control" id="topicText" required/>
+                    </div> <br/>
+
+                    <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
+                        <label htmlFor="topicText">Module name </label>
+                        <input type="text" className="form-control" id="moduleText" required/>
+                    </div> <br/>
+
+                    <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
+                        <label htmlFor="topicText">Institution</label>
+                        <input type="text"  className="form-control" id="whereText" required/>
+                    </div> <br/>
+                <div align="center">
+                <button className="btn btn-primary" id="up" onClick={this.upload.bind(this)}>Submit</button>
+                </div>
+                    <div align="center">
+                    <progress value="0" max="100" id="uploader">0%</progress>
+                    </div><br/>
+
+
+            </div>
             </div>
     );
 

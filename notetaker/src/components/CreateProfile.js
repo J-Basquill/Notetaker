@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router-dom";
 import * as firebase from "firebase";
 import user from "../img/user.png";
 import "../App.css";
@@ -42,7 +43,9 @@ export default class CreateProfile extends Component {
                 },
                 function complete(){
                     console.log("Uploaded")
-                });
+
+                }),
+
 
 
         dbRef.ref("profile/"+ userId+"/").set({
@@ -55,6 +58,8 @@ export default class CreateProfile extends Component {
             imgUrl: path
         });
         console.log("check");
+        this.props.history.push('/home')
+
     }
 
 
@@ -73,35 +78,35 @@ export default class CreateProfile extends Component {
                                                 <input type="file" id="profiler"/>
                                                 <progress value="0" max="100" id="uploader">0%</progress>
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div className="clearfix"></div>
 
                                             <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12">
-                                                <label htmlFor="inputFname">First Name</label>
-                                                <input type="text" className="form-control" ref="fn" id="fn" name="fname" placeholder="John"/>
+                                                <label htmlFor="inputFname" >First Name</label>
+                                                <input type="text" className="form-control" ref="fn" id="fn" name="fname" placeholder="John" required/>
                                             </div>
-                                    <div class="clearfix"></div>
+                                    <div className="clearfix"></div>
                                             <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
                                                 <label htmlFor="inputLname">Last Name</label>
                                                 <input type="text" className="form-control" id="ln" placeholder="Doe"/>
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div className="clearfix"></div>
 
                                             <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
                                                 <label htmlFor="inputAddress">Location</label>
                                                 <input type="text" className="form-control" id="loc" placeholder="Dublin, Ireland"/>
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div className="clearfix"></div>
                                             <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
                                                 <label htmlFor="inputUni">University</label>
                                                 <input type="text" className="form-control" id="uni" placeholder="Maynooth University"/>
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div className="clearfix"></div>
                                             <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12">
                                                     <label htmlFor="inputCourse">Course Title</label>
                                                     <input type="text" className="form-control" id="course" placeholder="BA English and History"/>
 
                                             </div>
-                                            <div class="clearfix"></div>
+                                            <div className="clearfix"></div>
                                             <div align="center">
                                                 <button className="btn btn-primary" onClick={this.update.bind(this)}>Update Profile</button>
                                             </div>

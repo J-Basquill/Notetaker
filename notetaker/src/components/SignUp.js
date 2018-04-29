@@ -58,7 +58,7 @@ class SignUp extends Component {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/home' } }
+    const { from } = this.props.location.state || { from: { pathname: '/createprofile' } }
 
     if (this.state.redirect === true) {
       return <Redirect to={from} />
