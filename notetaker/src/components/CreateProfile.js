@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as firebase from "firebase";
 import user from "../img/user.png";
+import "../App.css";
 
 
 export default class CreateProfile extends Component {

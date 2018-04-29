@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+const footerStyles = {
+  color: "#8ba0a6",
+  textAlign: "center"
+}
+
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +13,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer >
+            <footer style={footerStyles}>
                 <ul className="text-white">
                     <li>
                         &copy; {this.state.year} NoteTaker
