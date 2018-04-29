@@ -28,12 +28,17 @@ export default class Home extends Component {
                  <img style={logoStyles} src={OwlLogo}></img>
                 <h1 className="welcome" id="welcome"  />
               </div>
-
-                <div id="library">
+              <div class="box">
+                <div class="table">
                     <table id="list"></table>
-                    <div id="demo"></div>
+                    <div class="prev" id="trans" >
+                      <img id="prev" src=""></img>
+                    </div>
                 </div>
+              </div>
             </div>
+
+
         );
     }
 
@@ -62,6 +67,19 @@ export default class Home extends Component {
                 childSnapshot.forEach(function(childChildSnapshot){
                     var new_row = document.getElementById("list").insertRow();
                     new_row.addEventListener("click", function(){
+                      let arr = document.getElementsByClassName("hightlight");
+                      console.log(arr);
+                        for(var i=0;i<arr.length;i++){
+                          console.log(arr[i]);
+                          arr[i].classList.remove("hightlight");
+                        }
+                      new_row.classList.add("hightlight");
+                      
+                      let path = childChildSnapshot.child("file").val();
+                        console.log(firebase.storage().ref().child(path).getDownloadURL());
+                        firebase.storage().ref().child(path).getDownloadURL().then(function(url){
+                          //document.getElementById("prev").src=url;
+                        });
                         console.log(userArr.includes(childChildSnapshot.key));
                         if(userArr.includes(childChildSnapshot.key)){
 
@@ -69,7 +87,7 @@ export default class Home extends Component {
                             const element = <FileTransfer id={childChildSnapshot.key} />;
                             ReactDOM.render(
                                 element,
-                                document.getElementById('upl')
+                                document.getElementById('trans')
                             );
                         }
                     });
