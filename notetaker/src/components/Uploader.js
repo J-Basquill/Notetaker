@@ -1,10 +1,13 @@
 import React from "react";
 import * as firebase from "firebase";
+import "../App.css";
 
 const UploadStyles = {
     width: "100%",
     maxWidth: "400px",
-    background: "crimson",
+    color: "black",
+    background: "#fcc93d",
+    opacity: "0.7",
     margin: "20px auto",
     border: "3px solid #ddd",
     borderRadius: "5px",
@@ -46,18 +49,18 @@ export default class Uploader extends React.Component{
     render(){
 
         return(
-            <div style={UploadStyles}>
+
+            <div className="form" style={UploadStyles}>
             <h1 className="heading">UPLOADING</h1>
 
-            Please choose a file: <input type="file" id="fileButton" required/><br/>
-            Field of study: <input type="text" id="topicText" required/><br/>
-            Module name: <input type="text" id="moduleText" required/><br/>
-            Institution: <input type="text" id="whereText" required/><br/>
-            <button id="up" onClick={this.upload.bind(this)}>Submit</button><br/>
+            Please choose a file:  <input type="file" id="fileButton" required/> <br/>
+            <input type="text" id="topicText" required/> Field of study <br/> <br/>
+            <input type="text" id="moduleText" required/> Module name <br/><br/>
+            <input type="text" id="whereText" required/> Institution<br/><br/>
+            <button align="center" id="up" onClick={this.upload.bind(this)}>Submit</button><br/>
             <progress value="0" max="100" id="uploader">0%</progress>
 
             </div>
-
     );
 
     }

@@ -6,7 +6,8 @@ import { app } from '../firebase_Config'
 const loginStyles = {
   width: "90%",
   maxWidth: "315px",
-  background: "crimson",
+  background: "#fcc93d",
+  opacity: "0.7",
   margin: "20px auto",
   border: "3px solid #ddd",
   borderRadius: "5px",
