@@ -19,9 +19,10 @@ export default class FileTransfer extends React.Component{
 
         firebase.database().ref('files/').once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot){
-              console.log(childSnapshot.child(key).val());
-              let value = childSnapshot.child(key).val();
-              firebase.database().ref('files/'+userId).push(key).set(value);
+              if (childSnapshot.child(key).exists()) {
+                let value = childSnapshot.child(key).val();
+                firebase.database().ref('files/'+userId+'/'+key).set(value);
+              }
             });
         });
 
@@ -32,9 +33,8 @@ export default class FileTransfer extends React.Component{
 
         return(
             <div>
-                <h1>FILE TRANSFER</h1>
-                <p id="demo" >Would you like to add the file to your library?</p>
-                <button onClick={this.check.bind(this)}>Button</button>
+                <p id="demo" >Would you like to add the file {this.props.id} to your library?</p>
+                <button onClick={this.check.bind(this)}>Yes</button>
 
             </div>
         );

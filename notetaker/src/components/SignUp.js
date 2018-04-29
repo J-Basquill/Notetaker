@@ -7,7 +7,8 @@ const loginStyles = {
   width: "90%",
   maxWidth: "315px",
   margin: "20px auto",
-  background: "crimson",
+  background: "#fcc93d",
+  opacity: "0.7",
   border: "3px solid #ddd",
   borderRadius: "5px",
   padding: "10px"

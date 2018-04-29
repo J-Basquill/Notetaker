@@ -19,8 +19,13 @@ export default class Library extends React.Component{
                 <img style={logoStyles} src={OwlLogo}></img>
             <div className="welcome">
                 <h1 className="heading">LIBRARY</h1>
-                <table id="list"></table>
-                <a id="link" href =""download="results.jpeg"></a>
+                <div class="table">
+                  <table id="list"></table>
+                  <a id="link" href =""download="results.jpeg"></a>
+                </div>
+                <div class="prev">
+                  <img id="prev" src=""></img>
+                </div>
             </div>
           </div>
         );
@@ -40,8 +45,6 @@ export default class Library extends React.Component{
                   firebase.storage().ref().child(path).getDownloadURL().then(function(url) {
                       var link = url;
                       window.location.href=link;
-                      document.getElementById("link").href = link;
-                      document.getElementById("link").innerText="Ready for Download"
                   }).catch(function(error) {
 
                   });
