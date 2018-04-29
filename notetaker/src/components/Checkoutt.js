@@ -53,15 +53,14 @@ export default class Checkoutt extends Component {
                 <p>Institution: {this.props.val.value.institution}</p>
                 <p>File: {this.props.val.value.file}</p>
                <label>
-                 Name:
-                 <input type="text"/>
+                 Card number:
+                 <input type="text" req/>
                </label>
                     <br/>
 
                 <label>
-                  Card: <input type="text" />
-                </label>
-
+                  CVC: <input type="text" req />
+                </label> <br/>
 
                <input id="buttonCheckout" type="submit" value="Submit" />
 

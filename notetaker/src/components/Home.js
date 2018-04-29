@@ -36,7 +36,7 @@ export default class Home extends Component {
                       </div>
 
                       <div class="prev">
-                        <img id="prev" src=""></img>
+                        <img id="prev" src="" width="auto" height="200px"></img>
                         <div id="trans"></div>
                       </div>
                   </div>

@@ -109,6 +109,9 @@
   width: 55%;
   padding:10px ;
   margin: auto;
+  height:180px;
+  overflow-y: scroll;
+  display: block;
 }
 
 td{
