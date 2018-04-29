@@ -24,21 +24,22 @@ export default class Home extends Component {
     render() {
         return (
             <div className="Home">
-             <div className="lander">
-                 <img style={logoStyles} src={OwlLogo}></img>
-                <h1 className="welcome" id="welcome"  />
-              </div>
-              <div class="box">
-                <div class="table">
-                    <table id="list"></table>
-                    <div class="prev" id="trans" >
-                      <img id="prev" src=""></img>
+                   <div className="lander">
+                       <img style={logoStyles} src={OwlLogo}></img>
+                      <h1 className="welcome" id="welcome"  />
                     </div>
-                </div>
-              </div>
+
+                  <div class="box">
+                      <div class="table">
+                          <table id="list"></table>
+                      </div>
+
+                      <div class="prev">
+                        <img id="prev" src=""></img>
+                        <div id="trans"></div>
+                      </div>
+                  </div>
             </div>
-
-
         );
     }
 
@@ -74,11 +75,11 @@ export default class Home extends Component {
                           arr[i].classList.remove("hightlight");
                         }
                       new_row.classList.add("hightlight");
-                      
+
                       let path = childChildSnapshot.child("file").val();
                         console.log(firebase.storage().ref().child(path).getDownloadURL());
                         firebase.storage().ref().child(path).getDownloadURL().then(function(url){
-                          //document.getElementById("prev").src=url;
+                          document.getElementById("prev").src=url;
                         });
                         console.log(userArr.includes(childChildSnapshot.key));
                         if(userArr.includes(childChildSnapshot.key)){

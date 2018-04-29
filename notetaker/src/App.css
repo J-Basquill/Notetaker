@@ -52,11 +52,12 @@
   width: 100%;
   height: 100%;
   background-size: 100% 100%;
-  position: absolute;
+  position: fixed;
 }
 
 .Home .lander {
     text-align: center;
+    position: relative;
 }
 
 .Home .lander h1 {
@@ -123,13 +124,16 @@ th{
 
 .table{
   display: inline-block;
+  position: absolute;
   float: left;
   text-align: left;
-
+  margin-left: 45px;
+  overflow-x:auto;
 }
 .prev{
   display: inline-block;
-  float: left;
+  float: inherit;
+  position: absolute;
 }
 .hightlight{
   border: 5px solid green;
