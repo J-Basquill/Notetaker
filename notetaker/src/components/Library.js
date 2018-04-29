@@ -16,7 +16,7 @@ export default class Library extends React.Component{
     render(){
         return(
             <div>
-                <img style={logoStyles} src={OwlLogo}></img>
+                <img style={logoStyles} src={OwlLogo}></img> <br/>
 
             <div className="welcome">
                 <h1 className="heading">LIBRARY</h1>

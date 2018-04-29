@@ -25,7 +25,7 @@ export default class Home extends Component {
         return (
             <div className="Home">
                    <div className="lander">
-                       <img style={logoStyles} src={OwlLogo}></img>
+                       <img style={logoStyles} src={OwlLogo}></img><br/>
                       <h1 className="welcome" id="welcome"  />
 
                     </div>
@@ -53,7 +53,17 @@ export default class Home extends Component {
         userId = userId.substr(0, userId.indexOf("@"));
         userId = userId.replace(".","");
 
-      document.getElementById('welcome').innerHTML = "Welcome " + userId + "! ";
+        firebase.database().ref("profile/"+userId+"/firstname").once('value', function(snapshot) {
+            let nm = snapshot.val();
+            if (nm== null){
+                document.getElementById('welcome').innerHTML = "Welcome "
+            }
+            else {
+                document.getElementById('welcome').innerHTML = "Welcome " + nm + "! ";
+            }
+        });
+
+
 
         let userArr = [];
         firebase.database().ref('files/' + userId).once('value', function(snapshot) {
