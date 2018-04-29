@@ -25,18 +25,25 @@ export default class ProfilePage extends Component {
         );
     }
 
-   /** componentDidMount(){
+    componentDidMount(){
+
+      let userId = firebase.auth().currentUser.email;
+      userId = userId.substr(0, userId.indexOf("@"));
+      userId = userId.replace(".","");
 
         let storageRef = firebase.storage().ref();
-        let path = document.getElementById("profile-img").value;
-        let spaceRef = storageRef.child(path);
-        spaceRef.getDownloadURL().then(function(url) {
-            console.log("Download check");
-            console.log(url);
+
+        firebase.database().ref("profile/"+userId+"/imgUrl").once('value', function(snapshot) {
+          let path = snapshot.val(),
+              spaceRef = storageRef.child(path);
+              spaceRef.getDownloadURL().then(function(url) {
+                  console.log("Download check");
+                  console.log(url);
 
 
-        }.bind(this)).catch(function(error) {
-            console.log(error);
+              }.bind(this)).catch(function(error) {
+                  console.log(error);
+              });
         });
-    }*/
+    }
 }

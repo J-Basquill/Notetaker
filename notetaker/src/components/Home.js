@@ -28,7 +28,7 @@ export default class Home extends Component {
                  <img style={logoStyles} src={OwlLogo}></img>
                 <h1 className="welcome" id="welcome"  />
               </div>
-              <div className="box">
+              <div id= "boxeen" className="box">
                 <div className="table">
                     <table id="list"></table>
                     <div className="prev" id="trans" >
