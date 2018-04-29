@@ -4,6 +4,17 @@ import * as firebase from "firebase";
 import {app} from "../firebase_Config";
 import FileTransfer from "./FileTransfer";
 import ReactDOM from 'react-dom';
+import OwlLogo from '../img/OwlLogo.png'
+
+
+const logoStyles = {
+    display: "block",
+    margin: "auto",
+    width: "10%",
+    height: "10%"
+}
+
+
 export default class Home extends Component {
 
     constructor(props) {
@@ -14,6 +25,7 @@ export default class Home extends Component {
         return (
             <div className="Home">
              <div className="lander">
+                 <img style={logoStyles} src={OwlLogo}></img>
                 <h1 className="welcome" id="welcome"  />
               </div>
 

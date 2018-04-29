@@ -17,6 +17,15 @@ import './App.css';
 import Uploader from "./components/Uploader";
 import Downloader from "./components/Downloader";
 import createProfile from "./components/CreateProfile";
+import OwlLogo from './img/OwlLogo.png'
+
+
+const logoStyles = {
+    display: "block",
+    margin: "auto",
+    width: "10%",
+    height: "10%"
+}
 
 
 function AuthenticatedRoute({component: Component, authenticated, ...rest}) {
@@ -112,16 +121,23 @@ class App extends Component {
                             <div className="workspace">
                                 <Route exact path="/" render={(props) => {
                                     return <div>
+                                        <img style={logoStyles} src={OwlLogo}></img>
                                         <h1 style={{padding: "1em", color: "white", textAlign: "center", fontFamily: "Courier New"}} >Welcome to NoteTakers</h1>
                                         <p style={{padding: "1em", color: "white", textAlign: "center", fontFamily: "Courier New", fontSize: "large"}} >A never-been-done-before, totally original, file sharing website. </p>
                                     </div>
                                 }} />
 
                                 <Route exact path="/login" render={(props) => {
-                                    return <Login setCurrentUser={this.setCurrentUser} {...props} />
+                                    return <div>
+                                        <img style={logoStyles} src={OwlLogo}></img>
+                                        <Login setCurrentUser={this.setCurrentUser} {...props} />
+                                    </div>
                                 }} />
                                 <Route exact path="/SignUp" render={(props) => {
-                                    return <SignUp setCurrentUser={this.setCurrentUser} {...props} />
+                                    return <div>
+                                        <img style={logoStyles} src={OwlLogo}></img>
+                                        <SignUp setCurrentUser={this.setCurrentUser} {...props} />
+                                    </div>
                                 }} />
 
                                 <Route exact path="/logout" component={Logout} />
@@ -130,6 +146,7 @@ class App extends Component {
                                     path="/home"
                                     authenticated={this.state.authenticated}
                                     component={Home}
+
                                 />
                                 <AuthenticatedRoute
                                     exact

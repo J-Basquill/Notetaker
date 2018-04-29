@@ -1,13 +1,23 @@
 import React from "react";
 import "../App.css";
 import * as firebase from "firebase";
-//git check comment
+import OwlLogo from '../img/OwlLogo.png'
+
+
+const logoStyles = {
+    display: "block",
+    margin: "auto",
+    width: "10%",
+    height: "10%"
+}
+
 export default class Library extends React.Component{
 
     render(){
         return(
             <div>
-                <h1>LIBRARY</h1>
+                <img style={logoStyles} src={OwlLogo}></img>
+                <h1>My LIBRARY</h1>
                 <table id="list"></table>
                 <a id="link" href =""download="results.jpeg"></a>
             </div>
