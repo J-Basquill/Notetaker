@@ -47,7 +47,7 @@ export default class Checkoutt extends Component {
         return (
           <div className="form">
               <form onSubmit={this.handleSubmit}>
-                <h1 className="heading"> Checkout {this.props.val.key} </h1>
+                <h1 className="heading"> Checkout</h1>
                 <p>Field: {this.props.val.value.field}</p>
                 <p>Module: {this.props.val.value.module}</p>
                 <p>Institution: {this.props.val.value.institution}</p>

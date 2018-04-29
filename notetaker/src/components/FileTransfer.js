@@ -42,7 +42,7 @@ export default class FileTransfer extends React.Component{
 
         return(
             <div>
-                <p id="demo" >Would you like to add the file {this.props.id} to your library?</p>
+                <p id="demo" >Would you like to add this file to your library?</p>
                 <button onClick={this.check.bind(this)}>Yes</button>
 
             </div>
