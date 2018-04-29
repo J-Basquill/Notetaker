@@ -41,7 +41,7 @@
 
 .image-thumbnail {
   background: url('./img/background.jpg') no-repeat;
-  background-size: 30px; /** moved this property down */
+  background-size: 30px;
   float: left;
   height: 50px;
   width: 30px;
@@ -119,6 +119,20 @@ th{
   background-color: #dfe5e8;
     color: #1e4b61;
     text-align: center;
+}
+
+.header-profile{
+  width: 100%;
+  max-Width: 400px;
+  background: crimson;
+  margin: 20px auto;
+  border-radius: 15px 50px;;
+  border-color: #ddd ;
+
+  padding: 10px;
+  color: white;
+  font-family: "Courier New";
+  text-align: center;
 }
 
 .table{

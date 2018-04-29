@@ -3,6 +3,15 @@ import * as firebase from "firebase";
 import user from "../img/user.png";
 import "../App.css";
 
+const UploadStyles = {
+    width: "100%",
+    maxWidth: "400px",
+    background: "crimson",
+    margin: "20px auto",
+    border: "3px solid #ddd",
+    borderRadius: "5px",
+    padding: "10px",
+}
 
 export default class CreateProfile extends Component {
 
@@ -52,47 +61,55 @@ export default class CreateProfile extends Component {
 
     render() {
         return (
+            <div>
 
-                    <div className="card card-body bg-info ">
-                        <div className="row">
-                            <div className="col-4 col-md-3 m-auto">
-                                <div className="container">
+                                <h1 className="heading">Create Your Profile.</h1>
 
-                                            <div align= "center">
+
+                                <div className="container" style={UploadStyles}>
+
+                                            <div align= "center" >
                                                 <img id="profo" src={user} />
                                                 <input type="file" id="profiler"/>
                                                 <progress value="0" max="100" id="uploader">0%</progress>
                                             </div>
-                                            <div className="form-row">
-                                                <div className="form-group col-md-6">
-                                                    <label htmlFor="inputFname">First Name</label>
-                                                    <input type="text" className="form-control" ref="fn" id="fn" name="fname" placeholder="John"/>
-                                                </div>
-                                                <div className="form-group col-md-6">
-                                                    <label htmlFor="inputLname">Last Name</label>
-                                                    <input type="text" className="form-control" id="ln" placeholder="Doe"/>
-                                                </div>
+                                            <div class="clearfix"></div>
+
+                                            <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12">
+                                                <label htmlFor="inputFname">First Name</label>
+                                                <input type="text" className="form-control" ref="fn" id="fn" name="fname" placeholder="John"/>
                                             </div>
-                                            <div className="form-group col-md-6">
+                                    <div class="clearfix"></div>
+                                            <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
+                                                <label htmlFor="inputLname">Last Name</label>
+                                                <input type="text" className="form-control" id="ln" placeholder="Doe"/>
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                            <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
                                                 <label htmlFor="inputAddress">Location</label>
                                                 <input type="text" className="form-control" id="loc" placeholder="Dublin, Ireland"/>
                                             </div>
-                                            <div className="form-group col-md-4">
+                                            <div class="clearfix"></div>
+                                            <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12" >
                                                 <label htmlFor="inputUni">University</label>
                                                 <input type="text" className="form-control" id="uni" placeholder="Maynooth University"/>
                                             </div>
-                                            <div className="form-row">
-                                                <div className="form-group col-md-4">
+                                            <div class="clearfix"></div>
+                                            <div className="form-group col-xs-10 col-sm-12 col-md-12 col-lg-12">
                                                     <label htmlFor="inputCourse">Course Title</label>
                                                     <input type="text" className="form-control" id="course" placeholder="BA English and History"/>
-                                                </div>
+
                                             </div>
-                                            <button onClick={this.update.bind(this)}>Button</button>
+                                            <div class="clearfix"></div>
+                                            <div align="center">
+                                                <button className="btn btn-primary" onClick={this.update.bind(this)}>Update Profile</button>
+                                            </div>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+
+            </div>
+
 
 
         );
