@@ -11,7 +11,7 @@ const stripe = require("stripe")(keySecret);
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.use(express.static("public"));
 
@@ -52,4 +52,4 @@ app.post("/charge", (req, res) => {
   });
 });
 
-//app.listen(5000);
+
